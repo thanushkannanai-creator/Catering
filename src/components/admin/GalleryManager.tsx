@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Upload, Trash2, Edit2, X, Save } from 'lucide-react';
+import { Upload, Trash2, CreditCard as Edit2, X, Save } from 'lucide-react';
 import { supabase, GalleryImage } from '../../lib/supabase';
 
 export function GalleryManager() {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Trash2, Edit2, X, Save } from 'lucide-react';
+import { Plus, Trash2, CreditCard as Edit2, X, Save } from 'lucide-react';
 import { supabase, BlogPost } from '../../lib/supabase';
 
 export function BlogManager() {

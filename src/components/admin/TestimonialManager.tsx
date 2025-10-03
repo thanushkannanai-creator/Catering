@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Trash2, Edit2, X, Save, Star } from 'lucide-react';
+import { Plus, Trash2, CreditCard as Edit2, X, Save, Star } from 'lucide-react';
 import { supabase, Testimonial } from '../../lib/supabase';
 
 export function TestimonialManager() {
