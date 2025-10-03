@@ -8,6 +8,7 @@ import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { AdminLogin } from './pages/AdminLogin';
 import { AdminDashboard } from './pages/AdminDashboard';
+import { NotFound } from './pages/NotFound';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
+                    <Route path="*" element={<NotFound />} />
                   </Routes>
                 </main>
                 <Footer />

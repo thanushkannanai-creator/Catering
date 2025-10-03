@@ -23,6 +23,8 @@ export interface Testimonial {
   reviewer_name: string;
   content: string;
   video_url?: string;
+  rating: number;
+  photo_url: string;
   created_at: string;
 }
 

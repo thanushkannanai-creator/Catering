@@ -11,7 +11,7 @@ export function Contact() {
     email: '',
     phone: '',
     message: '',
-    viaWhatsApp: false
+    viaWhatsApp: true
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -22,12 +22,10 @@ export function Contact() {
     setSubmitStatus('idle');
 
     try {
-      if (formData.viaWhatsApp) {
-        const message = encodeURIComponent(
-          `Hello! I'm ${formData.name}.\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage: ${formData.message}`
-        );
-        window.open(`https://wa.me/919840650939?text=${message}`, '_blank');
-      }
+      const message = encodeURIComponent(
+        `Hello! I'm ${formData.name}.\n\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage: ${formData.message}`
+      );
+      window.open(`https://wa.me/919840650939?text=${message}`, '_blank');
 
       const { error } = await supabase
         .from('contact_inquiries')
@@ -36,13 +34,13 @@ export function Contact() {
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
-          via_whatsapp: formData.viaWhatsApp
+          via_whatsapp: true
         }]);
 
       if (error) throw error;
 
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '', viaWhatsApp: false });
+      setFormData({ name: '', email: '', phone: '', message: '', viaWhatsApp: true });
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');

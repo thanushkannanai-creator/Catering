@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { MenuCard } from './MenuCard';
 
 export function OurMenus() {
@@ -111,17 +111,6 @@ export function OurMenus() {
             </button>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center"
-          >
-            <button className="inline-flex items-center gap-2 bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors shadow-lg">
-              <Download size={20} />
-              Download Full Menu (PDF)
-            </button>
-          </motion.div>
         </div>
       </div>
     </section>

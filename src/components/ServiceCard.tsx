@@ -9,6 +9,24 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ title, description, icon, features }: ServiceCardProps) {
+  const handleRequestQuote = () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const whatsappCheckbox = document.querySelector('#whatsapp') as HTMLInputElement;
+        if (whatsappCheckbox) {
+          whatsappCheckbox.checked = true;
+        }
+        const messageTextarea = document.querySelector('#message') as HTMLTextAreaElement;
+        if (messageTextarea) {
+          messageTextarea.value = `Hi, I'm interested in ${title} services. Please send me a quote.`;
+          messageTextarea.focus();
+        }
+      }, 800);
+    }
+  };
+
   return (
     <motion.div
       whileHover={{ scale: 1.05, y: -5 }}
@@ -27,7 +45,10 @@ export function ServiceCard({ title, description, icon, features }: ServiceCardP
           </li>
         ))}
       </ul>
-      <button className="w-full mt-6 bg-amber-600 text-white py-2 rounded-lg hover:bg-amber-700 transition-colors">
+      <button
+        onClick={handleRequestQuote}
+        className="w-full mt-6 bg-amber-600 text-white py-2 rounded-lg hover:bg-amber-700 transition-all hover:scale-105 hover:shadow-lg"
+      >
         Request Quote
       </button>
     </motion.div>
